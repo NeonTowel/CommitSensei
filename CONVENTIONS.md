@@ -11,6 +11,21 @@
 
 ### **Go** (`//` comments)
 
+- **Package File Headers**: Clarify intent at a glance:
+  
+  ```
+  // Package cache implements TTL-based object storage
+  // [Scope: DATA] [Status: Experimental]
+  // Uses SHA-256 for key derivation
+  package cache
+  ```
+  
+  - **First Line**: Briefly state package purpose.
+    
+  - **Metadata Tags** (optional but useful): Scope, stability, owner.
+    
+  - **Extended Context**: Keep it under three lines.
+    
 - **Functions/Structs**: One-liner describing *role*:
   
   ```go
@@ -18,7 +33,7 @@
   // WHY: Avoid DB hits on frequent profile reads  
   func CacheUser(u User) error { ... }  
   ```
-
+  
 - **Interfaces**: Treat like API contracts:
   
   ```go
@@ -26,6 +41,7 @@
   // Implementors: SlackNotifier, EmailNotifier  
   type Notifier interface { Notify(msg string) }  
   ```
+  
 
 ### **Scripts/Automation** (`#` comments)
 
@@ -37,12 +53,13 @@
   # RISK: High (modifies prod S3 buckets)
   # SAFETY: Dry-run with --simulate  
   ```
-
+  
 - **Error Guidance**: Tag failures with fixes:
   
   ```bash
   # ERROR: FileNotFound → FIX: Run 'download_deps.sh' first  
   ```
+  
 
 ### **IaC (Bicep, Terraform, CloudFormation)**
 
@@ -64,6 +81,7 @@
   # SECURITY: Restrict ingress to /24 CIDR 
   resource "aws_security_group" "payments" { ... }  
   ```
+  
 
 ### **Frontend (Svelte, TypeScript)**
 
@@ -79,7 +97,7 @@
   
   <img src={avatar} alt="User Avatar" />
   ```
-
+  
 - **Function Intent**:
   
   ```typescript
@@ -89,6 +107,7 @@
     return new Intl.NumberFormat(locale, { style: 'currency', currency: 'USD' }).format(amount);
   }
   ```
+  
 
 ### **Taskfiles (go-task)**
 
@@ -104,6 +123,7 @@
       cmds:
         - az deployment group create --resource-group MyRG --template-file main.bicep
   ```
+  
 
 ## 🔗 **Syncing with Git Commits**
 
@@ -140,12 +160,12 @@ docs(api): add rate limit examples #doc-impact
 
 ### 🚦 **Commit Types (The MVPs)**
 
-| Type    | When to Use                         | Example                          |
-| ------- | ----------------------------------- | -------------------------------- |
-| `feat`  | New behavior (user-facing) 🎉       | `feat(auth): add SMS 2FA`        |
-| `fix`   | Bug squash 🐞→💥                    | `fix(login): timeout on iOS 17`  |
-| `docs`  | READMEs, comments, guides 📚        | `docs(api): deprecate /v1/users` |
-| `chore` | Grunt work (CI, deps, refactors) 🛠 | `chore(deps): bump React to 19`  |
+| Type | When to Use | Example |
+| --- | --- | --- |
+| `feat` | New behavior (user-facing) 🎉 | `feat(auth): add SMS 2FA` |
+| `fix` | Bug squash 🐞→💥 | `fix(login): timeout on iOS 17` |
+| `docs` | READMEs, comments, guides 📚 | `docs(api): deprecate /v1/users` |
+| `chore` | Grunt work (CI, deps, refactors) 🛠 | `chore(deps): bump React to 19` |
 
 ### 💥 **Breaking Changes**
 

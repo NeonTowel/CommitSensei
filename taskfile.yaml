@@ -2,22 +2,33 @@ version: "3"
 
 tasks:
   default:
-    - task --list-all
+    desc: "List all available tasks"
+    cmds:
+      - task --list-all
   
-  dev:build:
+  ui:build:
+    desc: "Install frontend dependencies and build the frontend"
     dir: frontend
     cmds:
       - yarn install
       - yarn build
 
   dev:go:deps:
+    desc: "Install Go dependencies for Wails"
     cmds:
       - go install github.com/wailsapp/wails/v2/cmd/wails@latest
 
   dev:go:check:
+    desc: "Check Go environment and dependencies"
     cmds:
       - wails doctor
 
   dev:
+    desc: "Start the Wails development server"
     cmds:
       - wails dev
+  
+  build:
+    desc: "Build the Wails application"
+    cmds:
+      - wails build
