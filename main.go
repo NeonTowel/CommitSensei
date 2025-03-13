@@ -10,14 +10,14 @@ import (
 	"github.com/wailsapp/wails/v2/pkg/options/assetserver"
 )
 
-//go:embed frontend/dist
+//go:embed all:frontend/dist
 var assets embed.FS
 
 func main() {
 	app := NewApp()
 
 	err := wails.Run(&options.App{
-		Title:  "Gitmoji for your commit messages",
+		Title:  "CommitSensei - Emojis for your commit messages",
 		Width:  1024,
 		Height: 768,
 		AssetServer: &assetserver.Options{
