@@ -1,0 +1,6 @@
+frontend/dist
+build/appicon.png
+build/bin/gitmoji.exe
+build/windows/icon.ico
+build/windows/info.json
+build/windows/wails.exe.manifest

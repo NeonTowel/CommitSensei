@@ -1,0 +1,23 @@
+version: "3"
+
+tasks:
+  default:
+    - task --list-all
+  
+  dev:build:
+    dir: frontend
+    cmds:
+      - yarn install
+      - yarn build
+
+  dev:go:deps:
+    cmds:
+      - go install github.com/wailsapp/wails/v2/cmd/wails@latest
+
+  dev:go:check:
+    cmds:
+      - wails doctor
+
+  dev:
+    cmds:
+      - wails dev

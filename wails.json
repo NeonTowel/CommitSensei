@@ -1,0 +1,20 @@
+{
+    "name": "gitmoji",
+    "outputfilename": "gitmoji",
+    "frontend:dir": "frontend",
+    "frontend:install": "yarn install",
+    "frontend:build": "yarn build",
+    "frontend:dev:watcher": "yarn dev",
+    "frontend:dev:serverUrl": "auto",
+    "author": {
+        "name": "Jaakko Leskinen",
+        "email": "hello@neontowel.dev"
+    },
+    "info": {
+        "companyName": "NeonTowel",
+        "productName": "Gitmoji",
+        "productVersion": "0.1.0"
+    },
+    "debounceMS": 100,
+    "devServerurl": "http://localhost:5173"
+}
