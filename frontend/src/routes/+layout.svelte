@@ -1,10 +1,13 @@
 <script lang="ts">
+	// PURPOSE: Main layout component for the application
+	// WHY: Provides a consistent structure and styling for all pages
 	import '../app.css';
 	let { children } = $props();
 </script>
 
 <div class="min-h-screen flex flex-col items-center bg-white dark:bg-stone-950 font-sans">
   <!-- Header -->
+  <!-- PURPOSE: Displays the application title and navigation options -->
   <header class="w-full flex flex-col items-center py-4 px-6 bg-amber-300">
     <h1 class="text-3xl font-bold text-gray-800 text-center mt-20 mb-15">
       <span class="mr-2 text-9xl">gitm<span class="text-pink-600">😊</span>ji</span>
@@ -15,5 +18,6 @@
     </div>
   </header>
 
+  <!-- Render child components -->
   {@render children()}
 </div>
