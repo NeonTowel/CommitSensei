@@ -1,0 +1,6 @@
+---
+description: Documentation, git and code styling conventions
+globs: *.md, *.go, *.svelte,*.ts, *.js, *.css
+alwaysApply: false
+---
+Check our conventions from [CONVENTIONS.md](mdc:CONVENTIONS.md)
